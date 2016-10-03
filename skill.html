@@ -1,15 +1,35 @@
-<!-- ---
+---
 layout: default
---- -->
+---
 
-<html>
-   <body>
+<!-- Main -->
+<div id="main">
+    <section>
+        {% for post in site.posts limit:1 %}
+            <header class="major">
+                <h2>{{ post.title }}</h2>
+                <p class="post-meta">{{ post.date | date: "%b %-d, %Y" }}{% if post.author %} • {{ post.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
+            </header>
 
-      <script language="javascript" type="text/javascript">
-         <!--
-            document.write("Hello World!")
-         //-->
-      </script>
+            <section>
+                {{ post.content }}
+            </section>
+        {% endfor %}
+    </section>
+    <section>
+        <div class="row">
 
-   </body>
-</html>
+          <html>
+             <body>
+
+                <script language="javascript" type="text/javascript">
+                   <!--
+                      document.write("Hello World!")
+                   //-->
+                </script>
+
+             </body>
+          </html>
+        </div>
+    </section>
+</div>
